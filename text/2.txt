@@ -1,0 +1,19 @@
+SERVER:
+
+import socket			
+s = socket.socket(socket.AF_INET,socket.SOCK_DGRAM)		
+print ("Socket successfully created")
+host="127.0.0.1"
+port = 8000			
+s.bind((host, port))				
+c, addr = s.recvfrom(1024)	
+print(c)
+
+
+CLIENT:
+
+import socket			
+s = socket.socket(socket.AF_INET,socket.SOCK_DGRAM)				
+s.sendto(str.encode("Durka VL 2018109"),('127.0.0.1',8000))
+print("Data sent to Server")	
+

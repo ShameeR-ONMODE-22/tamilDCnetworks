@@ -1,0 +1,31 @@
+SERVER:
+
+import socket
+s=socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
+s.bind(('127.0.0.1',8000))
+print ("Welcome: The server is now ready to receive")
+
+while True:
+  data,addr=s.recvfrom(1024)
+  print('>> ',data)
+  message = input(">> ")
+  s.sendto(str.encode(message),addr)
+  if(message == 'q'):
+    s.close()
+
+
+CLIENT:
+
+
+import socket
+s=socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
+reqMessage=input("> ")
+s.sendto(str.encode(reqMessage),('127.0.0.1',8000))
+while True:
+    data,addr=s.recvfrom(1024)
+    print(data)
+    message = input(">> ")
+    s.sendto(str.encode(message),addr)
+    if(message == 'q'):
+        s.close()
+

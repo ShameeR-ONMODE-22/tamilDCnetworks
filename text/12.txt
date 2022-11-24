@@ -1,0 +1,34 @@
+CLIENT:
+
+import json
+import requests
+url='http://ptsv2.com/t/3894f-1665744100/d/latest/json'
+r=requests.get(url)
+data=r.json()['FormValues']
+for x in data:
+  data[x] = data[x][0]
+ip=input("Enter ip adddress:")
+if ip in data.keys():
+  print(data[ip])
+else:
+  print("ip address not found")
+  mac=input("Enter corresponding mac address:")
+  urlpost='http://ptsv2.com/t/3894f-1665744100/post'
+  data[ip]=mac
+  r=requests.post(urlpost,data=data)
+
+
+SERVER:
+
+
+ mac_ip={
+  "10.0.2.5":"00:16:3e:99:0b:db",
+   "10.0.5.5":"00:16:4e:99:0b:db",
+   "11.0.2.5":"00:16:5e:99:0b:db",
+   "15.0.2.5":"00:15:7c:99:0b:db",
+   "17.0.2.5":"00:20:3d:99:0b:db"
+  }
+import requests
+url='http://ptsv2.com/t/3894f-1665744100/post'
+r=requests.post(url,data=mac_ip)
+print(r)

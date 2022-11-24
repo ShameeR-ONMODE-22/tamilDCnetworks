@@ -1,0 +1,71 @@
+SERVER:
+
+import socket
+HOST = "127.0.0.1"  
+PORT = 65432  
+with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+    s.bind((HOST, PORT))
+    s.listen()
+    conn, addr = s.accept()
+    with conn:
+        print(f"Connected by {addr}")
+        while True:
+            data = conn.recv(1024)
+            print("Message from server")
+            print(data.decode())
+            if not data:
+                break
+            conn.sendall(data)
+
+
+CLIENT:
+
+import socket
+HOST = "127.0.0.1"  
+PORT = 65432 
+
+with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+    s.connect((HOST, PORT))
+    c=input("Enter data:")
+    c=bytes(c,'utf-8')
+    s.sendall(c)
+    data = s.recv(1024)
+    dataa=data.decode()
+    print("Received echo message")
+print(data)
+
+-----------------------------------------------------------------------------------
+SERVER:
+
+import socket
+HOST = "127.0.0.1"  
+PORT = 65432  
+s=socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
+s.bind((HOST, PORT))
+s.listen()
+print("Waiting for connection...")
+conn, addr = s.accept()
+print(f"Connected established:", {addr})
+data = conn.recv(1024)
+print("Received:",data)
+conn.sendall(data)
+conn.close()
+s.close()
+
+CLIENT:
+
+
+import socket
+HOST = "127.0.0.1"  
+PORT = 65432 
+s= socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
+s.connect((HOST, PORT))
+c=str(input("Enter message:"))
+c=bytes(c,'utf-8')
+print("Sending:",c)
+s.sendall(c)
+print("Original:",c)
+data = s.recv(1024)
+data=data.decode()
+print("Received echo message:",data)
+s.close()

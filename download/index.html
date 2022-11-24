@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
+    <title>Document</title>
+</head>
+<body>
+    <div class="heading">
+        <h1 id="title">freeCodeCamp Survey Form</h1>
+        <p id="descrption">Thank you for taking the time to help us improve the platform</p>
+    </div>
+    <div class="fullform">
+        <form id="survey-form"> 
+            <div class="form">
+            <label id="name-label">
+             Name<br><input class="make" type="text" id="name" placeholder="Enter your name" required>
+            </label>
+            </div>
+            <div class="form">
+             <label id="email-label">Email</label><br><input class="make" type="email" id="email" placeholder="Enter your email" ><br>
+            </div>
+            <div class="form">
+             <label id=" number-label">Age(Optional)</label><br><input type="number" class="make" id="number" min="0" max="99"  placeholder="Age">
+            </div>
+            <div class="form">
+                 <p>Which option best describes your current role?</p>
+                <select id="dropdown" name="role" class="form-control" required>
+                     <option disabled selected value>Select current role</option>
+                     <option value="student">Student</option>
+                     <option value="job">Full time job</option>
+                     <option value="learner">Full time learner</option>
+                     <option value="no">Perefer not to say</option>
+                     <option value="other">Other</option>
+                </select>
+           </div>
+           <div class="form">
+             <p>Would you recommend freeCodeCamp to a friend?</p>
+             <label> <input type="radio" name="userwish" value="definitely" checked>Definitely</label><br>
+                 <input type="radio" name="userwish" value="maybe">Maybe<br>
+                 <input type="radio" name="userwish" value="Notsure">Not sure<br>
+            </div> 
+            <div class="from">
+                <p>What is your favorite feature of freeCodeCamp?</p>
+                <select id="dropdown" name="role" class="form-control" required>
+                    <option disabled selected value>Select an option</option>
+                    <option balue="challenges">Challenges</option>
+                    <option value="projects">Projects</option>
+                    <option value="community">Community</option>
+                    <option value="opensource">Open Source</option>
+               </select>
+            </div>
+            <div class="form">
+                <p>What would you like to see improved? (Check all that apply)</p>
+                <input type="checkbox" value="front-end-projects">Front-end Projects<br>
+                <input type="checkbox" value="Back-end-Projects">Back-end Projects<br>
+                <input type="checkbox" value="Data-Visualization">Data Visualization<br>
+                <input type="checkbox" value="Challenges">Challenges<br>
+                <input type="checkbox" value="Open-Source-Community">Open Source Community<br>
+                <input type="checkbox" value="Gitter-help-rooms">Gitter help rooms<br>
+                <input type="checkbox" value="Videos">Videos<br>
+                <input type="checkbox" value="City-Meetups">City Meetups<br>
+                <input type="checkbox" value="Wiki">Wikis<br>
+                <input type="checkbox" value="Forum">Forum<br>
+                <input type="checkbox" value="Additional0-Courses">Additional Courses<br>
+            </div>
+            <div class="form">
+                <p>Any comments or suggestions?</p>
+                <textarea class="area" id="text" placeholder="Enter your comment here"></textarea>
+            </div>
+            <div class="form">
+                <button id="submit" type="submit" onsubmit="finish()">Submit</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+
+<style>
+   body{
+    background-color:#524A4E;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+.heading{
+    font-family:  Courier, cursive, Helvetica;
+    color: whitesmoke;
+    text-align: center;
+    font-family: Candara;
+}
+.heading:hover{
+    color: #FFC0D3;
+}
+.fullform{
+    color: whitesmoke;
+    font-family: cursive;
+    background-color: #FF5C8D;
+    border-radius: 30px;
+    padding: 35px;
+    width: 50%;
+    font-size: 1.125rem; 
+    margin: 3.125rem auto 0 auto;
+}
+.fullform:hover{
+color: white;
+background: rgb(253, 4, 87);
+border-radius: 50px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+border: 1px solid rgba(255, 7, 105, 0.3);
+}
+.make{
+    width: 60%;
+    margin:10px 0 10px 0;
+}
+#text{
+    width: 100%;
+    height: 10em;
+}
+#submit{
+    margin-top: 2%;
+    margin-left: 45%;
+    background-color: #FFBBBB;
+}
+@media only screen and (max-width: 600px){
+    .fullform{
+        width: 90%;
+    }
+}
+
+</style>
+<script>
+    function finish(){
+        alert(submitted);
+    }
+</script>
